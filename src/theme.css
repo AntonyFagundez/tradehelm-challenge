@@ -9,7 +9,7 @@ body {
 
 #root {
   text-align: center;
-  background-color: #282c34;
+  background-color: rgb(245,245,245);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

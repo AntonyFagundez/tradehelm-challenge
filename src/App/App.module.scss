@@ -2,20 +2,67 @@
 .container {
   width: 100%;
   max-width: 480px;
+  color: rgba(0,0,0,0.7);
 }
 
 // Header
 .header {
   h1 {
-    font-weight: 800;
+    font-weight: 500;
     font-size: 2rem;
     margin: 0;
     margin-bottom: 6px;
   }
+}
 
-  h3 {
-    font-weight: 300;
-    font-size: 1.25rem;
-    margin: 0;
+.section {
+
+  flex-direction: column;
+  width: 100%;
+
+  div {
+    flex: 1;
+    padding: 0.20rem
+  }
+  
+  .item {
+    margin: 0.6rem;
+    background-color: white;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    border-radius: 0.2rem;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  
+
+    div {
+      display: flex;
+      flex-grow: 1;
+      font-weight: bold;
+    }
+    span {
+      display: flex;
+      max-width: max-content;
+      font-style: oblique;
+    }
+
+    span:hover {
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    
+  }
+  
+  .button {
+    margin: 0.6rem;
+    padding: 10px;
+    background-color: rgb(1,168, 255);
+    border-radius: 0.2rem;
+    color: white;
+    cursor: pointer;
   }
 }
