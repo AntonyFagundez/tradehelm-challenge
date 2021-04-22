@@ -1,20 +1,28 @@
 import * as React from "react";
 
-import {Item} from "../types/Item";
+import {DataContext} from "../Context/DataProvider";
+import {deleteItem} from "../Context/reducer";
 
 import styles from "./App.module.scss";
+import Card from "./components/Card";
 
 const App: React.FC = () => {
-  const [data, _setData] = React.useState<Item[]>([
-    {
-      id: "123",
-      label: "no puedeser",
-    },
-    {
-      id: "3",
-      label: "no puedeser",
-    },
-  ]);
+  const [open, setOpen] = React.useState(false);
+
+  const {
+    state: {data},
+    dispatch,
+  } = React.useContext(DataContext);
+
+  const handleOpen = () => {
+    setOpen((prev) => !prev);
+  };
+
+  const handleDelete = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    dispatch(deleteItem(id));
+  };
 
   return (
     <main className={styles.container}>
@@ -27,12 +35,15 @@ const App: React.FC = () => {
           {data.map(({id, label}) => (
             <div key={id} className={styles.item}>
               <div>{label}</div>
-              <span>delete</span>
+              <span onClick={handleDelete(id)}>delete</span>
             </div>
           ))}
-          <div className={styles.button}>Add item</div>
+          <div className={styles.button} onClick={handleOpen}>
+            Add item
+          </div>
         </div>
       </section>
+      {open && <Card handleClose={handleOpen} />}
     </main>
   );
 };
