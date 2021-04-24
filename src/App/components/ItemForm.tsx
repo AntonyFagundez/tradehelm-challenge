@@ -1,15 +1,16 @@
 import React from "react";
 import {useFormik} from "formik";
 
-import styles from "../Card.module.scss";
 import {DataContext} from "../../Context/DataProvider";
 import {addItem} from "../../Context/reducer";
 
-interface CardProps {
+import styles from "./ItemForm.module.scss";
+
+interface ItemFormProps {
   handleClose: () => void;
 }
 
-const Card: React.FC<CardProps> = ({handleClose}) => {
+const ItemForm: React.FC<ItemFormProps> = ({handleClose}) => {
   const {dispatch} = React.useContext(DataContext);
   const formik = useFormik({
     initialValues: {
@@ -17,7 +18,6 @@ const Card: React.FC<CardProps> = ({handleClose}) => {
       label: "",
     },
     onSubmit: (values) => {
-      // eslint-disable-next-line no-debugger
       dispatch(addItem(values));
       handleClose();
     },
@@ -30,6 +30,7 @@ const Card: React.FC<CardProps> = ({handleClose}) => {
         <form onSubmit={formik.handleSubmit}>
           <input
             autoFocus
+            aria-label="item-label"
             id="label"
             name="label"
             type="text"
@@ -54,4 +55,4 @@ const Card: React.FC<CardProps> = ({handleClose}) => {
   );
 };
 
-export default Card;
+export default ItemForm;

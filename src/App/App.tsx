@@ -4,7 +4,7 @@ import {DataContext} from "../Context/DataProvider";
 import {deleteItem} from "../Context/reducer";
 
 import styles from "./App.module.scss";
-import Card from "./components/Card";
+import ItemForm from "./components/ItemForm";
 
 const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -38,12 +38,12 @@ const App: React.FC = () => {
               <span onClick={handleDelete(id)}>delete</span>
             </div>
           ))}
-          <div className={styles.button} onClick={handleOpen}>
+          <button className={styles.button} name="add-item" onClick={handleOpen}>
             Add item
-          </div>
+          </button>
         </div>
       </section>
-      {open && <Card handleClose={handleOpen} />}
+      {open && <ItemForm handleClose={handleOpen} />}
     </main>
   );
 };
