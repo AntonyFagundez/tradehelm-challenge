@@ -1,7 +1,7 @@
 import {v1 as uuidV1} from "uuid";
 
-import {Item} from "../types/Item";
-import {State, Action} from "../types/State";
+import {State, Action} from ".././types/State";
+import {Item} from ".././types/Item";
 
 const ADD_ITEM = "ADD_ITEM";
 const DELETE_ITEM = "DELETE_ITEM";

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./App";
-import DataProvider from "./Context/DataProvider";
+import DataProvider from "./App/Context/DataProvider";
 import reportWebVitals from "./reportWebVitals";
 
 import "./theme.css";

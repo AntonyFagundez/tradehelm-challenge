@@ -1,9 +1,8 @@
 import React from "react";
 import {useFormik} from "formik";
 
-import {DataContext} from "../../Context/DataProvider";
-import {addItem} from "../../Context/reducer";
-
+import {DataContext} from "./../Context/DataProvider";
+import {addItem} from "./../Context/reducer";
 import styles from "./ItemForm.module.scss";
 
 interface ItemFormProps {
@@ -23,8 +22,16 @@ const ItemForm: React.FC<ItemFormProps> = ({handleClose}) => {
     },
   });
 
+  const handleClickOutside = (e: React.MouseEvent) => {
+    const target = e.target as HTMLDivElement;
+
+    if (target.getAttribute("aria-current")) {
+      handleClose();
+    }
+  };
+
   return (
-    <div className={styles.modal}>
+    <div aria-current={true} className={styles.modal} onClick={handleClickOutside}>
       <div className={styles.content}>
         <h3>Add Item</h3>
         <form onSubmit={formik.handleSubmit}>
@@ -38,12 +45,18 @@ const ItemForm: React.FC<ItemFormProps> = ({handleClose}) => {
             onChange={formik.handleChange}
           />
           <section>
-            <button className={styles.buttonClose} type="reset" onClick={handleClose}>
+            <button
+              className={styles.buttonClose}
+              name="close-button"
+              type="reset"
+              onClick={handleClose}
+            >
               Close
             </button>
             <button
               className={styles.buttonAdd}
               disabled={formik.values.label === ""}
+              name="add-bttn"
               type="submit"
             >
               Add

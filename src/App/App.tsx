@@ -1,10 +1,10 @@
-import * as React from "react";
-
-import {DataContext} from "../Context/DataProvider";
-import {deleteItem} from "../Context/reducer";
+import React from "react";
 
 import styles from "./App.module.scss";
-import ItemForm from "./components/ItemForm";
+import {DataContext} from "./Context/DataProvider";
+import {deleteItem} from "./Context/reducer";
+
+const ItemForm = React.lazy(() => import("./components/ItemForm"));
 
 const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -43,7 +43,9 @@ const App: React.FC = () => {
           </button>
         </div>
       </section>
-      {open && <ItemForm handleClose={handleOpen} />}
+      <React.Suspense fallback={null}>
+        {open && <ItemForm handleClose={handleOpen} />}
+      </React.Suspense>
     </main>
   );
 };

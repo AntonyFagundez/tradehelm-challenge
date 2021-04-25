@@ -1,9 +1,8 @@
 import React from "react";
 import {render, screen} from "@testing-library/react";
 
-import DataProvider from "../Context/DataProvider";
-import {State} from "../types/State";
-
+import DataProvider from "./Context/DataProvider";
+import {State} from "./types/State";
 import App from "./App";
 
 const mockState: State = {
