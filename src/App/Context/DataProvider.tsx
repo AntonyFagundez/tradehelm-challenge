@@ -2,7 +2,7 @@ import React from "react";
 
 import {Action, State} from "../types/State";
 
-import reducer from "./reducer";
+import reducer, {resetLoading} from "./reducer";
 
 interface contextData {
   state: State;
@@ -18,7 +18,7 @@ const initialData: State =
     ? (JSON.parse(localStorage.getItem("state") as string) as State)
     : {
         data: [],
-        isLoading: false,
+        isLoading: true,
         hasError: false,
         errorMessage: "",
       };
@@ -40,6 +40,16 @@ const DataProvider: React.FC<DataProviderProps> = ({children, initialState = ini
   React.useEffect(() => {
     localStorage.setItem("state", JSON.stringify(memoizedState));
   }, [memoizedState]);
+
+  React.useEffect(() => {
+    let fn: NodeJS.Timeout;
+
+    if (state.isLoading) {
+      fn = setTimeout(() => dispatch(resetLoading()), 600);
+    }
+
+    return () => clearTimeout(fn);
+  }, [state.isLoading]);
 
   return (
     <DataContext.Provider value={{state: memoizedState, dispatch}}>{children}</DataContext.Provider>

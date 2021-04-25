@@ -5,12 +5,14 @@ import {Item} from ".././types/Item";
 
 const ADD_ITEM = "ADD_ITEM";
 const DELETE_ITEM = "DELETE_ITEM";
+const RESET_LOADING = "RESET_LOADING";
 
 export default function reducer(state: State, action: Action): State {
   switch (action.type) {
     case ADD_ITEM: {
       return {
         ...state,
+        isLoading: true,
         data: [...state.data, {...(action.payload as Item), id: uuidV1()}],
       };
     }
@@ -18,7 +20,15 @@ export default function reducer(state: State, action: Action): State {
     case DELETE_ITEM: {
       return {
         ...state,
+        isLoading: true,
         data: state.data.filter((x) => x.id !== action.payload),
+      };
+    }
+
+    case RESET_LOADING: {
+      return {
+        ...state,
+        isLoading: false,
       };
     }
 
@@ -41,3 +51,5 @@ export const deleteItem = (id: string): Action => {
     payload: id,
   };
 };
+
+export const resetLoading = (): Action => ({type: RESET_LOADING});
