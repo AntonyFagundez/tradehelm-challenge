@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/tradehelm-challenge/static/css/main.099e1972.chunk.css",
+    "main.js": "/tradehelm-challenge/static/js/main.08dea30a.chunk.js",
+    "main.js.map": "/tradehelm-challenge/static/js/main.08dea30a.chunk.js.map",
+    "runtime-main.js": "/tradehelm-challenge/static/js/runtime-main.902f8a18.js",
+    "runtime-main.js.map": "/tradehelm-challenge/static/js/runtime-main.902f8a18.js.map",
+    "static/js/2.0ac8a534.chunk.js": "/tradehelm-challenge/static/js/2.0ac8a534.chunk.js",
+    "static/js/2.0ac8a534.chunk.js.map": "/tradehelm-challenge/static/js/2.0ac8a534.chunk.js.map",
+    "static/js/3.cc2b9557.chunk.js": "/tradehelm-challenge/static/js/3.cc2b9557.chunk.js",
+    "static/js/3.cc2b9557.chunk.js.map": "/tradehelm-challenge/static/js/3.cc2b9557.chunk.js.map",
+    "static/css/4.916f077f.chunk.css": "/tradehelm-challenge/static/css/4.916f077f.chunk.css",
+    "static/js/4.13951c26.chunk.js": "/tradehelm-challenge/static/js/4.13951c26.chunk.js",
+    "static/js/4.13951c26.chunk.js.map": "/tradehelm-challenge/static/js/4.13951c26.chunk.js.map",
+    "static/js/5.5fc34411.chunk.js": "/tradehelm-challenge/static/js/5.5fc34411.chunk.js",
+    "static/js/5.5fc34411.chunk.js.map": "/tradehelm-challenge/static/js/5.5fc34411.chunk.js.map",
+    "index.html": "/tradehelm-challenge/index.html",
+    "static/css/4.916f077f.chunk.css.map": "/tradehelm-challenge/static/css/4.916f077f.chunk.css.map",
+    "static/css/main.099e1972.chunk.css.map": "/tradehelm-challenge/static/css/main.099e1972.chunk.css.map",
+    "static/js/2.0ac8a534.chunk.js.LICENSE.txt": "/tradehelm-challenge/static/js/2.0ac8a534.chunk.js.LICENSE.txt",
+    "static/js/3.cc2b9557.chunk.js.LICENSE.txt": "/tradehelm-challenge/static/js/3.cc2b9557.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.902f8a18.js",
+    "static/js/2.0ac8a534.chunk.js",
+    "static/css/main.099e1972.chunk.css",
+    "static/js/main.08dea30a.chunk.js"
+  ]
+}
