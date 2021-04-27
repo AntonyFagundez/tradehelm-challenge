@@ -25,9 +25,13 @@ describe("<App/>", () => {
     expect(title).toBeInTheDocument();
   });
 
-  test("should have 'Add Item' Button", () => {
-    render(<App />);
-    const btn = screen.getByRole("button", {
+  test("should have 'Add Item' Button", async () => {
+    render(
+      <DataProvider initialState={mockState}>
+        <App />
+      </DataProvider>,
+    );
+    const btn = await screen.findByRole("button", {
       hidden: true,
       name: "Add item",
     });
@@ -36,7 +40,11 @@ describe("<App/>", () => {
   });
 
   it("should have zero items", async () => {
-    render(<App />);
+    render(
+      <DataProvider initialState={{...mockState, data: []}}>
+        <App />
+      </DataProvider>,
+    );
 
     const labelItems = await screen.findByText(/\(0\) items/i);
 
