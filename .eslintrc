@@ -2,7 +2,11 @@
   "env": {
     "node": true,
     "browser": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
+  },
+  "globals": {
+    "cy": true
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
